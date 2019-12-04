@@ -6,7 +6,7 @@ type Props = {
   text: string,
   children?: React.Node,
   onClick?: () => void,
-  onCopy: () => void,
+  onCopy: () => void
 };
 
 class CopyToClipboard extends React.Component<Props> {
@@ -19,8 +19,10 @@ class CopyToClipboard extends React.Component<Props> {
       onCopy();
     }
 
-    if (elem && elem.props && typeof elem.props.onClick === "function") {
-      elem.props.onClick(ev);
+    if (this.props.onClick && typeof this.props.onClick === "function") {
+      this.props.onClick();
+    } else if (elem && elem.props && typeof elem.props.onClick === "function") {
+      elem.props.onClick();
     }
   };
 
