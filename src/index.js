@@ -42,6 +42,7 @@ export type Props = {
   onClickLink?: (href: string) => void,
   onClickHashtag?: (tag: string) => void,
   onShowToast?: (message: string) => void,
+  onClickHeader?: node => void,
   getLinkComponent?: Node => ?React.ComponentType<any>,
   className?: string,
   style?: Object,
@@ -254,6 +255,7 @@ class RichMarkdownEditor extends React.PureComponent<Props, State> {
       onImageUploadStart,
       onImageUploadStop,
       onShowToast,
+      onClickHeader,
       className,
       style,
       dark,
@@ -294,6 +296,7 @@ class RichMarkdownEditor extends React.PureComponent<Props, State> {
             onImageUploadStart={onImageUploadStart}
             onImageUploadStop={onImageUploadStop}
             onShowToast={onShowToast}
+            onClickHeader={onClickHeader}
             readOnly={readOnly}
             spellCheck={!readOnly}
             uploadImage={uploadImage}
