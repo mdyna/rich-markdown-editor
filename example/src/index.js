@@ -64,7 +64,12 @@ class Example extends React.Component<*, { readOnly: boolean, dark: boolean }> {
           onClickLink={href => console.log("Clicked link: ", href)}
           onClickHashtag={tag => console.log("Clicked hashtag: ", tag)}
           onClickHeader={c => {
-            console.log("Scrolling to elemenet");
+            console.log("Scrolling to elemenet", c);
+            console.log(ReactDOM.findDOMNode(c));
+            ReactDOM.findDOMNode(c).scrollIntoView({
+              behavior: "smooth",
+              block: "center",
+            });
             window.scrollTo(0, c);
           }}
           onShowToast={message => window.alert(message)}
