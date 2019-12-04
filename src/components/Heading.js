@@ -54,10 +54,9 @@ function Heading(props: Props) {
       {showHash && (
         <Anchor
           name={slugish}
-          onCopy={() =>
-            editor.props.onShowToast &&
-            editor.props.onShowToast("Link copied to clipboard")
-          }
+          onClick={() => {
+            editor.props.onClickHeader && editor.props.onClickHeader(node);
+          }}
           text={`${origin}${pathToHeading}`}
         >
           <span>#</span>

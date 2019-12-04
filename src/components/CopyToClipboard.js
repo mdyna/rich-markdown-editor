@@ -13,9 +13,11 @@ class CopyToClipboard extends React.Component<Props> {
   onClick = (ev: SyntheticEvent<>) => {
     const { text, onCopy, children } = this.props;
     const elem = React.Children.only(children);
-    copy(text);
 
-    if (onCopy) onCopy();
+    if (onCopy) {
+      copy(text);
+      onCopy();
+    }
 
     if (elem && elem.props && typeof elem.props.onClick === "function") {
       elem.props.onClick(ev);
