@@ -54,8 +54,8 @@ function Heading(props: Props) {
       {showHash && (
         <Anchor
           name={slugish}
-          onClick={() => {
-            editor.props.onClickHeader && editor.props.onClickHeader(node);
+          onClick={c => {
+            editor.props.onClickHeader && editor.props.onClickHeader(c);
           }}
           text={`${origin}${pathToHeading}`}
         >
