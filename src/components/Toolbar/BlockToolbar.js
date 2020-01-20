@@ -13,7 +13,7 @@ import {
   OrderedListIcon,
   HorizontalRuleIcon,
   TodoListIcon,
-  TableIcon,
+  TableIcon
 } from "outline-icons";
 import getDataTransferFiles from "../../lib/getDataTransferFiles";
 import type { SlateNodeProps, Theme } from "../../types";
@@ -23,12 +23,12 @@ import ToolbarButton from "./ToolbarButton";
 const { changes } = EditList;
 
 type Props = SlateNodeProps & {
-  theme: Theme,
+  theme: Theme
 };
 
 type Options = {
   type: string | Object,
-  wrapper?: string | Object,
+  wrapper?: string | Object
 };
 
 class BlockToolbar extends React.Component<Props> {
@@ -68,7 +68,7 @@ class BlockToolbar extends React.Component<Props> {
     this.props.editor.setNodeByKey(this.props.node.key, {
       type: "paragraph",
       text: "",
-      isVoid: false,
+      isVoid: false
     });
   }
 
@@ -100,14 +100,14 @@ class BlockToolbar extends React.Component<Props> {
     this.props.editor.setNodeByKey(this.props.node.key, {
       type: "paragraph",
       text: "",
-      isVoid: false,
+      isVoid: false
     });
 
     return editor
       .moveToEndOfNode(this.props.node)
       .command(changes.wrapInList, type, undefined, {
         type: "list-item",
-        data: { checked },
+        data: { checked }
       })
       .focus();
   };
@@ -126,7 +126,7 @@ class BlockToolbar extends React.Component<Props> {
       case "horizontal-rule":
         return this.insertBlock(
           {
-            type: { type: "horizontal-rule", isVoid: true },
+            type: { type: "horizontal-rule", isVoid: true }
           },
           "after"
         );
@@ -236,7 +236,8 @@ const Bar = styled.div`
   position: relative;
   align-items: center;
   background: ${props => props.theme.blockToolbarBackground};
-  height: 44px;
+  flex-flow: row wrap;
+  padding: 3px;
 
   &:before,
   &:after {
@@ -244,7 +245,7 @@ const Bar = styled.div`
     position: absolute;
     left: -100%;
     width: 100%;
-    height: 44px;
+    height: 100%;
     background: ${props => props.theme.blockToolbarBackground};
   }
 
